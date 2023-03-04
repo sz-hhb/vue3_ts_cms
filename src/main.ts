@@ -13,5 +13,6 @@ app.use(store);
 // app.use(ElementPlus);
 
 registerApp(app);
+// app.use(registerApp);
 
 app.mount("#app");
