@@ -11,6 +11,10 @@ module.exports = defineConfig({
         components: "@/components",
       },
     },
+    devServer: {
+      port: 8080,
+      historyApiFallback: true,
+    },
   },
   // configureWebpack: (config) => {
   //   config.resolve.alias = {

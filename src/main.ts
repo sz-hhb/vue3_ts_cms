@@ -5,7 +5,7 @@ import store from "./store";
 // import ElementPlus from "element-plus";
 // import "element-plus/dist/index.css";
 import { registerApp } from "./global";
-import "./service/axios.demo";
+import hyRequest from "./service";
 
 const app = createApp(App);
 
@@ -17,3 +17,8 @@ registerApp(app);
 // app.use(registerApp);
 
 app.mount("#app");
+
+hyRequest.request({
+  url: "/home/multidata",
+  method: "GET",
+});
