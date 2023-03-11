@@ -32,4 +32,5 @@ app.mount("#app");
 hyRequest.request({
   url: "/home/multidata",
   method: "GET",
+  showLoading: false,
 });
