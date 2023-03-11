@@ -9,7 +9,7 @@ export interface HYRequestInterceptors {
     config: InternalAxiosRequestConfig
   ) => InternalAxiosRequestConfig;
   requestInterceptorCatch?: (error: any) => any;
-  responseInterceptor?: (res: AxiosResponse) => AxiosResponse;
+  responseInterceptor?: (res: any) => any;
   responseInterceptorCatch?: (error: any) => any;
 }
 
