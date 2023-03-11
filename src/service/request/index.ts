@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
+import axios, { AxiosInstance, InternalAxiosRequestConfig } from "axios";
 import type { HYRequestInterceptors, HYRequestConfig } from "./type";
 
 class HYRequest {
@@ -18,10 +18,36 @@ class HYRequest {
       this.interceptors?.responseInterceptor,
       this.interceptors?.responseInterceptorCatch
     );
+
+    this.instance.interceptors.request.use(
+      (config) => {
+        return config;
+      },
+      (err) => {
+        return err;
+      }
+    );
+
+    this.instance.interceptors.response.use(
+      (res) => {
+        return res;
+      },
+      (err) => {
+        return err;
+      }
+    );
   }
 
-  request(config: AxiosRequestConfig): void {
+  request(config: HYRequestConfig): void {
+    if (config.interceptors?.requestInterceptor) {
+      config = config.interceptors?.requestInterceptor(
+        config as InternalAxiosRequestConfig
+      );
+    }
     this.instance.request(config).then((res) => {
+      if (config.interceptors?.responseInterceptor) {
+        res = config.interceptors?.responseInterceptor(res);
+      }
       console.log(res);
     });
   }

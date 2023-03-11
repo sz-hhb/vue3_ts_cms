@@ -21,4 +21,10 @@ app.mount("#app");
 hyRequest.request({
   url: "/home/multidata",
   method: "GET",
+  interceptors: {
+    requestInterceptor: (config) => {
+      console.log("111");
+      return config;
+    },
+  },
 });
