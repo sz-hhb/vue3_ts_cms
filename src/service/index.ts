@@ -5,6 +5,10 @@ const hyRequest = new HYRequest({
   timeout: 10000,
   interceptors: {
     requestInterceptor: (config) => {
+      const token = "";
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
       return config;
     },
     requestInterceptorCatch: (err) => {
