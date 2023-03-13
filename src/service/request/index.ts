@@ -40,9 +40,7 @@ class HYRequest {
 
     this.instance.interceptors.response.use(
       (res) => {
-        setTimeout(() => {
-          this.loading?.close();
-        }, 3000);
+        this.loading?.close();
         return res.data;
       },
       (err) => {
