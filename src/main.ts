@@ -7,6 +7,7 @@ import store from "./store";
 import { registerApp } from "./global";
 import "normalize.css";
 import "@/assets/css/index.less";
+import { setUpStatus } from "@/store";
 
 const app = createApp(App);
 
@@ -16,5 +17,7 @@ app.use(store);
 
 registerApp(app);
 // app.use(registerApp);
+
+setUpStatus();
 
 app.mount("#app");

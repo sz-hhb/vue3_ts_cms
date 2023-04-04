@@ -11,4 +11,8 @@ const store = createStore<IRootState>({
   },
 });
 
+export function setUpStatus() {
+  store.dispatch("login/loadingStatusAction");
+}
+
 export default store;
