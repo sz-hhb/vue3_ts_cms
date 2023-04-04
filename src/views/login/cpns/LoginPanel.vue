@@ -1,5 +1,5 @@
 <template>
-  <div class="login-panel">
+  <div class="login-panel" :class="{ active: true }" :style="{ color: 'red' }">
     <h1>后台管理系统</h1>
     <el-tabs v-model="currentTab" type="border-card" class="login-tabs" stretch>
       <el-tab-pane name="account">

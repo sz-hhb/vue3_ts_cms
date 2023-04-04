@@ -3,6 +3,7 @@ import { ILoginState } from "./types";
 import { IRootState } from "../types";
 import { IAccount } from "@/service/login/type";
 import { accountLogin } from "@/service/login/login";
+import localCache from "@/utils/cache";
 
 const loginModule: Module<ILoginState, IRootState> = {
   namespaced: true,
@@ -21,6 +22,7 @@ const loginModule: Module<ILoginState, IRootState> = {
     async accountLoginAction({ commit }, payload: IAccount) {
       const { code, data } = await accountLogin(payload);
       commit("changeToken", data.token);
+      localCache.setCache("token", data.token);
     },
   },
 };
