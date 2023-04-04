@@ -8,6 +8,7 @@ import {
   getMenuByRoleId,
 } from "@/service/login/login";
 import localCache from "@/utils/cache";
+import router from "@/router";
 
 const loginModule: Module<ILoginState, IRootState> = {
   namespaced: true,
@@ -44,6 +45,8 @@ const loginModule: Module<ILoginState, IRootState> = {
       const menuList = menuListResult.data;
       commit("changeMenuList", menuList);
       localCache.setCache("userMenuList", menuList);
+
+      router.push("/main");
     },
     loadingStatusAction({ commit }) {
       const token = localCache.getCache("token");

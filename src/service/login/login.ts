@@ -17,11 +17,13 @@ export function accountLogin(account: IAccount) {
 export function getUserInfoById(id: number) {
   return hyRequest.get<IDataType>({
     url: LoginAPI.UserInfo + id,
+    showLoading: false,
   });
 }
 
 export function getMenuByRoleId(id: number) {
   return hyRequest.get<IDataType>({
     url: LoginAPI.MenuRole + id + "/menu",
+    showLoading: false,
   });
 }
