@@ -17,6 +17,13 @@ import {
   ElFormItem,
   ElCheckbox,
   ElLink,
+  ElContainer,
+  ElHeader,
+  ElMain,
+  ElMenu,
+  ElMenuItem,
+  ElSubMenu,
+  ElMenuItemGroup,
 } from "element-plus/lib/index";
 import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 
@@ -24,7 +31,6 @@ const components = [
   ElButton,
   ElTable,
   ElAlert,
-  ElAside,
   ElAutocomplete,
   ElAvatar,
   ElBacktop,
@@ -37,6 +43,14 @@ const components = [
   ElFormItem,
   ElCheckbox,
   ElLink,
+  ElContainer,
+  ElHeader,
+  ElMain,
+  ElAside,
+  ElMenu,
+  ElMenuItem,
+  ElSubMenu,
+  ElMenuItemGroup,
 ];
 
 export default function registerElement(app: App): void {
