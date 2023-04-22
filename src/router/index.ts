@@ -1,25 +1,31 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
 import localCache from "@/utils/cache";
 
 const routes: RouteRecordRaw[] = [
   {
     path: "/",
-    redirect: "/login",
+    redirect: "/main",
   },
   {
     path: "/login",
+    name: "login",
     component: () => import("@/views/login/UserLogin.vue"),
   },
   {
     path: "/main",
+    name: "main",
     component: () => import("@/views/main/UserMain.vue"),
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    component: () => import("@/views/not-found/NotFound.vue"),
   },
 ];
 
 const router = createRouter({
   routes,
-  history: createWebHistory(),
+  history: createWebHashHistory(),
 });
 
 router.beforeEach((to, from) => {

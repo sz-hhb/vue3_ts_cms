@@ -21,7 +21,10 @@
             </template>
             <!-- 二级菜单展开 -->
             <template v-for="subItem in item.children" :key="subItem.id">
-              <el-menu-item :index="subItem.id + ''">
+              <el-menu-item
+                :index="subItem.id + ''"
+                @click="handleMenuItemClick(subItem)"
+              >
                 <el-icon v-if="subItem.icon" :class="subItem.icon"></el-icon>
                 <span>{{ subItem.name }}</span>
               </el-menu-item>
@@ -45,6 +48,7 @@
 <script lang="ts">
 import { computed, defineComponent } from "vue";
 import { useStore } from "@/store";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   props: {
@@ -55,9 +59,16 @@ export default defineComponent({
   },
   setup(props) {
     const store = useStore();
+    const router = useRouter();
     const userMenu = computed(() => store.state.login.menuList);
 
-    return { userMenu };
+    const handleMenuItemClick = (item: any) => {
+      router.push({
+        path: item.url ?? "/not-found",
+      });
+    };
+
+    return { userMenu, handleMenuItemClick };
   },
 });
 </script>

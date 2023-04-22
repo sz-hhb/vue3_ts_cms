@@ -4,13 +4,21 @@
       <el-icon v-if="isCollapse"><Expand /></el-icon>
       <el-icon v-else><Fold /></el-icon>
     </div>
+    <div class="content">
+      <div>面包屑</div>
+      <user-info-drop-down />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, defineEmits } from "vue";
+import UserInfoDropDown from "./user-info-drop-down.vue";
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
+  components: {
+    UserInfoDropDown,
+  },
   emits: ["collapse-btn-click"],
   setup(props, { emit }) {
     const isCollapse = ref(false);
@@ -26,6 +34,9 @@ export default defineComponent({
 
 <style scoped lang="less">
 .nav-header {
+  display: flex;
+  gap: 10px;
+  width: 100%;
   height: 100%;
 
   .collapse-icon {
@@ -36,6 +47,13 @@ export default defineComponent({
       height: 48px;
       font-size: 28px;
     }
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 </style>

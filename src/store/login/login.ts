@@ -2,6 +2,7 @@ import { Module } from "vuex";
 import { ILoginState } from "./types";
 import { IRootState } from "../types";
 import { IAccount } from "@/service/login/type";
+import { mapMenuToRoutes } from "@/utils/map-menu";
 import {
   accountLogin,
   getUserInfoById,
@@ -23,11 +24,15 @@ const loginModule: Module<ILoginState, IRootState> = {
     changeToken(state, token: string) {
       state.token = token;
     },
-    changeUserInfo(state, payload) {
+    changeUserInfo(state, payload: any) {
       state.userInfo = payload;
     },
-    changeMenuList(state, payload) {
+    changeMenuList(state, payload: any) {
       state.menuList = payload;
+
+      const routes = mapMenuToRoutes(payload);
+
+      routes.forEach((route) => router.addRoute("main", route));
     },
   },
   actions: {

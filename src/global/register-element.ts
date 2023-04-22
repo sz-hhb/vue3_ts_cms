@@ -24,6 +24,9 @@ import {
   ElMenuItem,
   ElSubMenu,
   ElMenuItemGroup,
+  ElDropdown,
+  ElDropdownMenu,
+  ElDropdownItem,
 } from "element-plus/lib/index";
 import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 
@@ -51,6 +54,9 @@ const components = [
   ElMenuItem,
   ElSubMenu,
   ElMenuItemGroup,
+  ElDropdown,
+  ElDropdownMenu,
+  ElDropdownItem,
 ];
 
 export default function registerElement(app: App): void {

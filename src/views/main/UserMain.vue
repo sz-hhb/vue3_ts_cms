@@ -8,7 +8,11 @@
         <el-header>
           <nav-header @collapse-btn-click="collapseBtnClick"></nav-header>
         </el-header>
-        <el-main>Main</el-main>
+        <el-main>
+          <div class="page-info">
+            <router-view></router-view>
+          </div>
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -58,6 +62,11 @@ export default defineComponent({
 
   .el-main {
     background-color: #f0f2f5;
+
+    .page-info {
+      border-radius: 5px;
+      background-color: #fff;
+    }
   }
 }
 </style>
